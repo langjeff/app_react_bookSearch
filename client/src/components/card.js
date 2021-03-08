@@ -9,17 +9,34 @@ import {
   Button,
 } from "shards-react";
 
-export default function Card() {
+export default function BookCard({
+  key,
+  title,
+  authors,
+  href,
+  image,
+  description,
+}) {
   return (
-    <Card style={{ maxWidth: "300px" }}>
-      <CardHeader>Card header</CardHeader>
-      <CardImg src="https://place-hold.it/300x200" />
+    <Card key={key} style={{ maxWidth: "300px" }}>
+      <CardHeader>
+        <h3>{title}</h3>
+      </CardHeader>
+      <CardImg src={image} />
       <CardBody>
-        <CardTitle>Lorem Ipsum</CardTitle>
-        <p>Lorem ipsum dolor sit amet.</p>
-        <Button>Read more &rarr;</Button>
+        <CardTitle>{authors}</CardTitle>
+        <p>{description}</p>
+        <Button>
+          <a href={href}>Read more &rarr;</a>
+        </Button>
       </CardBody>
-      <CardFooter>Card footer</CardFooter>
     </Card>
   );
 }
+
+// card values from books prop
+//   key={books.items.id}
+//   title={books.items.volumeInfo.title}
+//   authors={books.items.volumeInfo.authors[0]}
+//   href={books.items.volumeInfo.infoLink}
+//   image={books.items.volumeInfo.imageLinks.smallThumbnail}
