@@ -11,6 +11,8 @@ export default function Search() {
   const [books, setBooks] = useState([]);
   const [bookSearch, setBookSearch] = useState("");
 
+  // function for add book passed to cards element
+
   const handleInputChange = (event) => {
     // Destructure the name and value properties off of event.target
     // Update the appropriate state
